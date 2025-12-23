@@ -14,6 +14,7 @@ In this example, all three elements of the triple — subject, predicate, and ob
 Finally, by selecting all three variables, we return the complete set of triples that match this pattern.
 
 SELECT ?s ?p ?o
+
 WHERE {?s ?p ?o}
 
 ## Finding classes in SPARQL
@@ -27,4 +28,5 @@ In this case, we use the predicate rdf:type as a fixed IRI. This means we are no
 The second concept is the use of DISTINCT. Without DISTINCT, if multiple resources are instances of the same class, that class will appear multiple times in the result set. By using DISTINCT, we ensure that each class is returned only once, even if it is used by many different resources.
 
 SELECT DISTINCT ?type
+
 WHERE{?s a ?type}
