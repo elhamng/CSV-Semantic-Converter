@@ -30,3 +30,81 @@ The second concept is the use of DISTINCT. Without DISTINCT, if multiple resourc
 SELECT DISTINCT ?type
 
 WHERE{?s a ?type}
+
+In Turtle syntax, a subject can be shared across multiple predicate–object pairs.
+
+When we do this, all predicate–object pairs for the same subject are written on separate lines. Each line except the last must end with a semicolon (;), and the final line must end with a (.).
+
+This syntax makes RDF more compact and readable by avoiding repetition of the subject.
+
+## Aggregation in SPARQL
+
+Aggregation in SPARQL allows us to compute summary values over query results.
+
+The COUNT function counts the number of bindings for a variable and binds the resulting value to a new variable.
+
+Aggregation functions are typically used together with the GROUP BY clause, which defines how the results are grouped before the aggregation is applied.
+
+In other words, GROUP BY specifies how individual matches are collected into groups, and aggregation functions such as COUNT produce a single value for each group.
+
+example : a tiny sample dataset (Turtle)
+
+@prefix ex:  <http://example.com/hr/> .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Employee a rdf:Class .
+
+ex:Contract a rdf:Class .
+
+ex:hasContract a rdf:Property .
+
+ex:e1 a ex:Employee .
+
+ex:e2 a ex:Employee .
+
+ex:e3 a ex:Employee .
+
+ex:c1 a ex:Contract .
+
+ex:c2 a ex:Contract .
+
+ex:c3 a ex:Contract .
+
+ex:c4 a ex:Contract .
+
+ex:e1 ex:hasContract ex:c1 , ex:c2 .
+
+ex:e2 ex:hasContract ex:c3 .
+
+ex:e3 ex:hasContract ex:c4 .
+
+Query: count contracts per employee
+
+PREFIX ex:  <http://example.com/hr/>
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?employee (COUNT(?contract) AS ?contractCount)
+
+WHERE {
+  ?employee rdf:type ex:Employee ;
+  
+            ex:hasContract ?contract .
+}
+GROUP BY ?employee
+
+ORDER BY DESC(?contractCount)
+
+What you’ll see (typical result)
+
+ex:e1 → 2
+
+ex:e2 → 1
+
+ex:e3 → 1
+
+
+
