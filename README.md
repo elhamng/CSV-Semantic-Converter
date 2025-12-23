@@ -1,6 +1,6 @@
 # CSV-Semantic-Converter
 
-##SPARQL
+## SPARQL
 SPARQL is a query language for graph databases, specifically for RDF triple stores such as GraphDB.
 
 The core idea of SPARQL is that we define a graph pattern in the WHERE clause. This pattern describes the structure of the data we want to match in the graph.
@@ -16,7 +16,7 @@ Finally, by selecting all three variables, we return the complete set of triples
 SELECT ?s ?p ?o
 WHERE {?s ?p ?o}
 
-##Finding classes in SPARQL
+## Finding classes in SPARQL
 
 To find classes in an RDF dataset, we introduce two main concepts.
 
