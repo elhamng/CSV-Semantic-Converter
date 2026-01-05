@@ -1,1 +1,37 @@
+A Knowledge Graph is a data artifact that represents entities (things in real world) and the relationships between them using explicit, shared semantics.
+
+While the underlying ideas are rooted in earlier concepts such as semantic networks, ontologies, and linked data, modern knowledge graphs emphasize self-describing semantics, standardized technologies (RDF, OWL, SPARQL), and practical use at scale.
+
+Knowledge graphs can be scoped to a single domain or span multiple domains and are commonly used for data integration, advanced analytics, and AI-driven applications.
+
+A knowledge graph is an artifact that consists of entities that are connected to each other under explicit and shared semantics.
+
+Although the idea is not new—similar concepts such as semantic networks, knowledge bases, ontologies, and linked data have existed since the 1980s and 1990s—the emphasis in knowledge graphs is on self-describing semantics, standardized technologies (such as RDF), and practical use at scale.
+
+What is new about Knowledge Graphs?
+
+nothing is fundamentally new.
+The novelty is in combination and emphasis, not in invention.
+
+Earlier concepts (80s–90s)
+
+Concept	          Focus
+
+Semanti networks	Graphs of concepts and relations
+
+Knowledge bases	  Structured facts
+
+Ontologies	      Formal domain models
+
+Linked Data	      Web-scale linking using URIs
+
+Knowledge Graphs emphasize:
+
+✔ Self-describing data
+
+✔ Explicit semantics embedded in the data
+
+✔ Standardized, interoperable stack
+
+✔ Operational use (analytics, AI, integration)
 
