@@ -121,6 +121,18 @@ Interoperability:	Exchange across systems
 
 Knowledge reuse:	Shared domain models
 
+The value of a knowledge graph depends on three crucial dimensions of meaning: accuracy, explicitness, and agreement. Accuracy ensures that the modeled entities and relationships correctly reflect the real-world domain. Explicitness ensures that meaning is directly encoded in the data and not left implicit or hidden in application logic. Agreement ensures that semantics are shared and understood consistently across systems and stakeholders, typically through standardized ontologies. Together, these dimensions enable reliable integration, analysis, and reuse.
+
+-Meaning accuracy ensures we model the right concepts. (ontology classes)
+
+-Meaning explicitness ensures the meaning is visible in the data itself. (properties, no hidden meaning)
+
+-Meaning agreement ensures everyone uses the same meaning. (ontology governance, avoid custom predicates)
+
+A knowledge graph exists only when all three are satisfied.
+
+If one dimension is missing → the graph degrades into “just data”.
+
 
 
 
