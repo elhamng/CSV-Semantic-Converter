@@ -15,15 +15,15 @@ The novelty is in combination and emphasis, not in invention.
 
 Earlier concepts (80s–90s)
 
-Concept	          Focus
+Concept	 :         Focus
 
-Semanti networks	Graphs of concepts and relations
+Semanti networks:	Graphs of concepts and relations
 
-Knowledge bases	  Structured facts
+Knowledge bases:	  Structured facts
 
-Ontologies	      Formal domain models
+Ontologies	  :    Formal domain models
 
-Linked Data	      Web-scale linking using URIs
+Linked Data	   :   Web-scale linking using URIs
 
 Knowledge Graphs emphasize:
 
@@ -34,4 +34,93 @@ Knowledge Graphs emphasize:
 ✔ Standardized, interoperable stack
 
 ✔ Operational use (analytics, AI, integration)
+
+
+The “Self-Semantic” aspect (very important)
+
+In a Knowledge Graph:
+
+Data carries its own meaning
+
+Meaning is not hidden in application code
+
+Entities are typed
+
+Relationships are named and reusable
+
+Example:
+
+:Alice a :Person ;
+
+       :worksFor :Hospital_12 .
+
+
+This graph is meaningful without external documentation.
+
+That’s what “self-semantic” means.
+
+Technology stack (what makes it practical today)
+
+Core stack:
+
+RDF → data model (triples)
+
+OWL → semantics and constraints
+
+SPARQL → querying
+
+URIs → global identifiers
+
+Graph databases / triple stores → scalability
+
+This stack makes semantics:
+
+explicit
+
+machine-readable
+
+interoperable
+
+queryable
+
+Scope: Single-domain vs Multi-domain
+
+This is an important classification.
+
+Single-domain Knowledge Graph
+
+Focused on one business domain
+
+Example: HR, healthcare, finance
+
+Strong ontology alignment
+
+High semantic precision
+
+Multi-domain Knowledge Graph
+
+Integrates multiple domains
+
+Shared identifiers and ontologies
+
+Cross-domain reasoning
+
+Higher complexity
+
+Purpose: Why build a Knowledge Graph?
+
+Common purposes:
+Purpose:	Example
+Data integration:	Combine API, CSV, DB sources
+
+Data analysis:	Indicators, reporting
+
+AI applications:	Feature graphs, reasoning
+
+Interoperability:	Exchange across systems
+
+Knowledge reuse:	Shared domain models
+
+
+
 
