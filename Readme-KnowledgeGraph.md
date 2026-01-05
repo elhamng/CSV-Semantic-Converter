@@ -133,6 +133,168 @@ A knowledge graph exists only when all three are satisfied.
 
 If one dimension is missing → the graph degrades into “just data”.
 
+Knowledge Graph Quality Dimensions
+
+Problems, Causes, and Detection
+
+When developing and applying a Knowledge Graph (KG), quality issues do not come from “bad RDF syntax” — they come from semantic failures.
+
+Below is a practical quality model centered on meaning.
+
+A knowledge graph may be inaccurate for several reasons. Inaccuracies can arise from automatic information extraction methods that misidentify entities or relationships, from errors or inconsistencies in the underlying data sources, from misunderstandings of ontology modeling elements during the mapping process, and from insufficient domain knowledge of the modeler. These causes often interact, making accuracy a semantic challenge rather than a purely technical one.
+
+Vagueness in a knowledge graph arises when classes or relations lack precise semantic definitions. Such vagueness enables multiple interpretations of the same graph, which in turn leads to disagreement across use cases, systems, or stakeholders. While a knowledge graph may remain technically valid, vague concepts undermine meaning agreement and result in inconsistent analytical, integrative, or regulatory outcomes. Reducing vagueness through explicit, well-defined ontology elements is therefore essential for reliable knowledge graph use.
+
+### Incompleteness, Inconsistency, and Conciseness in Knowledge Graphs
+
+These dimensions describe structural and semantic quality, not technology correctness.
+
+1️⃣ Incompleteness — “Something is missing”
+Definition
+
+A Knowledge Graph is incomplete when it lacks information that is required to fulfill its intended purpose.
+
+Incompleteness is always relative to a use case.
+
+Examples
+❌ Incomplete
+:Contract_123 a onto:contract .
+
+
+Missing:
+
+start date
+
+organization
+
+person
+
+This contract exists, but cannot be used meaningfully.
+
+✅ Complete (for reporting use case)
+:Contract_123 a onto:contract ;
+    onto:hasemployee :Person_1 ;
+    onto:hasorganization :Org_5 ;
+    onto:hasstartdate "2023-01-01"^^xsd:date .
+
+Causes of incompleteness
+
+Unclear scope or competency questions
+
+Partial data sources
+
+Incremental loading without coverage checks
+
+Missing relationships (more common than missing entities)
+
+Detection
+
+Competency question testing
+
+SPARQL “missing pattern” queries:
+
+SELECT ?c WHERE {
+  ?c a onto:contract .
+  FILTER NOT EXISTS { ?c onto:hasstartdate ?d }
+}
+
+2️⃣ Inconsistency — “Contradictions exist”
+Definition
+
+A Knowledge Graph is inconsistent when it contains statements that cannot all be true at the same time, given the ontology semantics.
+
+Examples
+❌ Inconsistent
+:Person_1 a onto:Person .
+:Person_1 a onto:Organisation .
+
+
+If Persoon and Organisation are disjoint classes → inconsistency.
+
+Another example:
+
+:Contract_1 onto:haststartdate "2024-01-01"^^xsd:date ;
+           kikv:hasenddate "2023-12-31"^^xsd:date .
+
+Causes of inconsistency
+
+Poor data quality in source systems
+
+Conflicting mappings
+
+Ontology constraints ignored
+
+Multiple teams modeling independently
+
+Temporal logic errors
+
+Detection
+
+OWL reasoners
+
+SHACL constraints
+
+Logical SPARQL checks:
+
+SELECT ?c WHERE {
+  ?c onto:hasstartdate ?s ;
+     onto:hasenddate ?e .
+  FILTER (?e < ?s)
+}
+
+3️⃣ Conciseness — “No redundancy or noise”
+Definition
+
+A Knowledge Graph is concise when it avoids redundant, duplicated, or unnecessary statements, while preserving meaning.
+
+Conciseness ≠ minimality
+Conciseness = no unnecessary repetition
+
+Examples
+❌ Not concise (redundancy)
+:Person_1 onto:hasName "Alice" .
+:Person_1 onto:name "Alice" .
+
+
+Same meaning, different predicates → redundancy.
+
+Or:
+
+:Person_1 a onto:Person .
+:Person_1 a onto:Person .
+
+✅ Concise
+:Person_1 a onto:Person ;
+          onto:hasName "Alice" .
+
+Causes of non-conciseness
+
+Multiple mappings of same field
+
+Duplicate data ingestion
+
+No identity resolution
+
+Predicate overlap
+
+Over-modeling
+
+Detection
+
+Duplicate triple detection
+
+Predicate overlap analysis
+
+Identity clustering checks
+
+Example:
+
+SELECT ?p (COUNT(*) AS ?cnt)
+WHERE { ?s ?p ?o }
+GROUP BY ?p
+ORDER BY DESC(?cnt)
+
+
 
 
 
