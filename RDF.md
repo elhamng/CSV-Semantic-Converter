@@ -149,5 +149,21 @@ Object property → object is a resource
 
 Data property → object is a literal
 
+IRI collisions occur when the same identifier is used to denote different real-world entities or when a single entity is unintentionally represented by multiple IRIs. Because RDF assumes that identical IRIs refer to the same thing, such collisions lead to semantic corruption of the knowledge graph. Careful IRI design—incorporating explicit scoping, entity typing, and stable identifier strategies—is therefore essential to preserve identity, accuracy, and long-term maintainability.
+
+Core principles of good IRI design
+
+✅ 1. One real-world thing → one IRI
+
+Never reuse an IRI for another thing.
+
+✅ 2. Include entity type in the path
+
+This avoids cross-type collisions.
+
+/person/{id}
+ /contract/{id}
+ /organization/{id}
+
 
 
