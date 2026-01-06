@@ -165,5 +165,7 @@ This avoids cross-type collisions.
  /contract/{id}
  /organization/{id}
 
+ Unicode defines a universal set of characters for representing text from all writing systems, while UTF-8 is a byte-level encoding that represents Unicode characters efficiently and compatibly with ASCII. UTF-8 has become the standard encoding for web technologies, APIs, RDF, and knowledge graphs. Correct handling of Unicode and UTF-8 is essential to preserve labels, literals, multilingual content, and IRIs without data corruption.
+
 
 
