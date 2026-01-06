@@ -324,16 +324,27 @@ A knowledge graph is only valuable if it answers the right questions for the rig
 A knowledge graph may be irrelevant not because it is incorrect, but because it fails to support its intended purpose. Irrelevance often arises from unclear use cases, misaligned scope, over- or under-modeling, lack of stakeholder alignment, or absence of downstream applications. Without clearly defined competency questions and success criteria, a knowledge graph risks becoming a technically sound but practically unused artifact.
 
 Accuracy Maintenance Loop (Mental Model)
+
 Source Change
+
    ↓
+   
 Data Validation
+
    ↓
+   
 Semantic Validation
+
    ↓
+   
 Ontology Alignment
+
    ↓
+   
 User Feedback
+
    ↓
+   
 Correction & Documentation
 
 
