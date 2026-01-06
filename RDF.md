@@ -74,5 +74,80 @@ A resource identified by an IRI is a resource
 
 A value like a string or number is a literal value
 
+4️⃣ Datatypes for literals
+
+Every literal has:
+
+a lexical form (the written text)
+
+optionally a datatype
+
+optionally a language tag
+
+Examples:
+
+"32"^^xsd:integer
+"2023-01-01"^^xsd:date
+"Alice"@en
+
+
+This is how RDF keeps values precise and machine-interpretable.
+
+5️⃣ Entity vs Resource
+
+Entity is a conceptual term (often used in modeling and KG discussions)
+
+Resource is the formal RDF term
+
+So in practice:
+
+Entity ≈ Resource identified by an IRI
+
+But strictly:
+
+RDF uses resource
+
+Knowledge graph literature often says entity
+
+6️⃣ RDF Triples
+
+An RDF triple has three parts:
+
+subject — predicate — object
+
+
+Formally:
+
+Subject: IRI or blank node (resource)
+
+Predicate: IRI (property)
+
+Object: IRI / blank node (resource) or literal
+
+Example (resource → resource):
+
+:Contract_1 onto:hasemployee :Person_123 .
+
+
+Example (resource → literal):
+
+:Contract_1 onto:hasstartdate "2023-01-01"^^xsd:date .
+
+7️⃣ Predicate (relationship)
+
+A predicate:
+
+Is always an IRI
+
+Represents a relationship or attribute
+
+Connects subject and object
+
+Two kinds:
+
+Object property → object is a resource
+
+Data property → object is a literal
+
 
 
