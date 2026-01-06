@@ -347,6 +347,8 @@ User Feedback
    
 Correction & Documentation
 
+Entity lexicalization is the process of associating entities in a knowledge graph with human-readable names and linguistic expressions. It enables humans and language-based systems to refer to entities using natural language while preserving stable, machine-oriented identifiers. Lexicalization supports search, interoperability, multilinguality, and user interaction without compromising semantic precision.
+
 
 
 
