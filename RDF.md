@@ -167,5 +167,217 @@ This avoids cross-type collisions.
 
  Unicode defines a universal set of characters for representing text from all writing systems, while UTF-8 is a byte-level encoding that represents Unicode characters efficiently and compatibly with ASCII. UTF-8 has become the standard encoding for web technologies, APIs, RDF, and knowledge graphs. Correct handling of Unicode and UTF-8 is essential to preserve labels, literals, multilingual content, and IRIs without data corruption.
 
+ In RDF, a datatype is defined by its lexical space, which specifies the set of valid string representations, its value space, which defines the abstract values those strings represent, and a lexical-to-value mapping that interprets strings as values. Different lexical forms may map to the same value, and comparisons in SPARQL operate on value spaces rather than lexical forms. Ill-typed literals, whose lexical forms fall outside the datatype’s lexical space, can lead to inconsistent or undefined behavior and should be avoided.
+ Lexical Space — “What strings are allowed?”
+
+The lexical space is the set of strings that are valid representations for a datatype.
+
+Example: xsd:integer
+
+Lexical space includes:
+
+"0" ,
+"1",
+"-42", \n
+"+7", \n
+"0005"
+
+
+Lexical space excludes:
+
+"1.5",
+"one",
+"1,000",
+
+
+All of these are strings.
+
+Example: xsd:date
+
+Lexical space:
+
+"2023-01-01",
+"1999-12-31"
+
+
+Invalid lexical forms:
+
+"01-01-2023",
+"2023/01/01"
+
+Value Space — “What values do they mean?”
+
+The value space is the set of abstract values the datatype represents.
+
+Example: xsd:integer
+
+Value space:
+
+…, -2, -1, 0, 1, 2, …
+
+
+So:
+
+"5",
+
+"05",
+
+"+5"
+
+all map to the same value: 5
+
+Example: xsd:boolean
+
+Lexical space:
+
+"true", "false", "1", "0"
+
+
+Value space:
+
+true, false
+
+
+Mappings:
+
+"true" → true
+
+"1" → true
+
+"false" → false
+
+"0" → false
+
+Lexical-to-Value Mapping — “How strings become values”
+
+This mapping:
+
+takes a lexical form (string)
+
+interprets it according to the datatype
+
+yields a value in the value space
+
+Example: integers
+
+Lexical form	Datatype	Value
+
+"05"	xsd:integer	5 ,
+"+5"	xsd:integer	5 ,
+"5"	xsd:integer	5 ,
+
+These literals are value-equal.
+
+Equality depends on the value space (important!)
+
+In RDF/SPARQL:
+
+"5"^^xsd:integer,
+"05"^^xsd:integer
+
+
+➡️ They are equal in value.
+
+But:
+
+"5"^^xsd:string, 
+"05"^^xsd:string
+
+
+➡️ They are not equal (strings differ).
+
+Ill-typed literals (critical pitfall)
+
+If a lexical form is not in the lexical space, the literal is ill-typed.
+
+"2023/01/01"^^xsd:date
+
+
+This has:
+
+lexical form "2023/01/01"
+
+datatype xsd:date
+
+❌ no value (invalid)
+
+Ill-typed literals:
+
+exist syntactically
+
+but break reasoning and comparisons
+
+7️SPARQL examples
+Numeric comparison (value space used)
+
+SELECT ?x WHERE {
+
+  FILTER("05"^^xsd:integer = "5"^^xsd:integer)
+  
+}
+
+
+✔ True
+
+String comparison (lexical space used)
+
+FILTER("05"^^xsd:string = "5"^^xsd:string)
+
+
+❌ False
+
+Date comparison
+
+FILTER("2023-01-01"^^xsd:date < "2023-12-31"^^xsd:date)
+
+
+✔ True
+
+Ill-typed literal filter
+
+FILTER("2023/01/01"^^xsd:date < "2023-12-31"^^xsd:date)
+
+
+❌ Error / false / engine-dependent
+
+8️⃣ Language-tagged strings (special case)
+
+"Alice"@en
+
+"Alice"@nl
+
+
+They do not have a datatype
+
+They have no value space beyond the string
+
+Equality requires same language tag
+
+FILTER("Alice"@en = "Alice"@nl)   # false
+
+Why this matters in Knowledge Graphs
+
+Bad datatype handling causes:
+
+wrong comparisons
+
+broken filters
+
+silent query errors
+
+inconsistent analytics
+
+Especially dangerous in:
+
+dates
+
+percentages
+
+numeric calculations
+
+time periods
+
+ 
+
 
 
