@@ -30,7 +30,7 @@ def get_access_token():
 
 def fetch_data(api_url, access_token):
     headers = {
-        "Authorization": f"Bearer {access_token}"
+        "Authorization": f"B.. {access_token}"
     }
     response = requests.get(api_url, headers=headers)
     if response.status_code == 200:
@@ -61,4 +61,5 @@ if __name__ == "__main__":
         save_metadata_to_file(data, FILE_PATH)
 
     except Exception as e:
+
         print(f"Error: {e}")
