@@ -1,0 +1,59 @@
+@prefix : <http://example.org#> .
+@prefix onz-g: <http://purl.org/ozo/onz-g#> .
+@prefix onz-pers: <http://purl.org/ozo/onz-pers#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Werkovereenkomst_200010_1 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:startDatum "0101-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200010 .
+
+:Werkovereenkomst_200020_1 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:startDatum "0101-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200020 .
+
+:Werkovereenkomst_200030_1 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:startDatum "0101-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200030 .
+
+:Werkovereenkomst_200030_2 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:startDatum "0401-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200030 .
+
+:Werkovereenkomst_200050_1 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:startDatum "0101-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200050 .
+
+:Werkovereenkomst_200060_1 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:eindDatum "0601-01-01"^^xsd:date ;
+    onz-g:startDatum "0101-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200060 .
+
+:Werkovereenkomst_200060_2 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:eindDatum "1201-01-01"^^xsd:date ;
+    onz-g:startDatum "0101-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200060 .
+
+:Werkovereenkomst_200070_1 a onz-pers:ArbeidsOvereenkomst ;
+    onz-g:eindDatum "1201-01-01"^^xsd:date ;
+    onz-g:startDatum "0101-01-01"^^xsd:date ;
+    onz-pers:heeftOpdrachtnemer :Medewerker_200070 .
+
+:Medewerker_200010 a onz-pers:Human ;
+    rdfs:label "200010"^^xsd:string .
+
+:Medewerker_200020 a onz-pers:Human ;
+    rdfs:label "200020"^^xsd:string .
+
+:Medewerker_200050 a onz-pers:Human ;
+    rdfs:label "200050"^^xsd:string .
+
+:Medewerker_200070 a onz-pers:Human ;
+    rdfs:label "200070"^^xsd:string .
+
+:Medewerker_200030 a onz-pers:Human ;
+    rdfs:label "200030"^^xsd:string .
+
+:Medewerker_200060 a onz-pers:Human ;
+    rdfs:label "200060"^^xsd:string .
+
