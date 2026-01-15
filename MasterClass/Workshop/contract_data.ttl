@@ -1,59 +1,59 @@
 @prefix : <http://example.org#> .
-@prefix onz-g: <http://purl.org/ozo/onz-g#> .
-@prefix onz-pers: <http://purl.org/ozo/onz-pers#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix onto-two: <http://purl.org/onto-two#> .
+@prefix onto-three: <http://purl.org/onto-three#> .
+@prefix rdfs: <http://www.w3.org/2/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:Werkovereenkomst_200010_1 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:startDatum "0101-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200010 .
+:Agreement_21_1 a onto-three:Type ;
+    onto-two:startDatum "0101-01-01"^^xsd:date ;
+    onto-three:employee :Employee_21 .
 
-:Werkovereenkomst_200020_1 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:startDatum "0101-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200020 .
+:Agreement_22_1 a onto-three:Type ;
+    onto-two:startDatum "0101-01-01"^^xsd:date ;
+    onto-three:employee :Employee_22 .
 
-:Werkovereenkomst_200030_1 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:startDatum "0101-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200030 .
+:Agreement_23_1 a onto-three:Type ;
+    onto-two:startDatum "0101-01-01"^^xsd:date ;
+    onto-three:employee :Employee_23 .
 
-:Werkovereenkomst_200030_2 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:startDatum "0401-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200030 .
+:Agreement_23_2 a onto-three:Type ;
+    onto-two:startDatum "0401-01-01"^^xsd:date ;
+    onto-three:employee :Employee_23 .
 
-:Werkovereenkomst_200050_1 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:startDatum "0101-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200050 .
+:Agreement_25_1 a onto-three:Type ;
+    onto-two:startDatum "0101-01-01"^^xsd:date ;
+    onto-three:employee :Employee_25 .
 
-:Werkovereenkomst_200060_1 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:eindDatum "0601-01-01"^^xsd:date ;
-    onz-g:startDatum "0101-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200060 .
+:Agreement_26_1 a onto-three:Type ;
+    onto-two:eindDatum "0601-01-01"^^xsd:date ;
+    onto-two:startDatum "0101-01-01"^^xsd:date ;
+    onto-three:employee :Employee_26 .
 
-:Werkovereenkomst_200060_2 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:eindDatum "1201-01-01"^^xsd:date ;
-    onz-g:startDatum "0101-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200060 .
+:Agreement_26_2 a onto-three:Type ;
+    onto-two:eindDatum "1201-01-01"^^xsd:date ;
+    onto-two:startDatum "0101-01-01"^^xsd:date ;
+    onto-three:employee :Employee_26 .
 
-:Werkovereenkomst_200070_1 a onz-pers:ArbeidsOvereenkomst ;
-    onz-g:eindDatum "1201-01-01"^^xsd:date ;
-    onz-g:startDatum "0101-01-01"^^xsd:date ;
-    onz-pers:heeftOpdrachtnemer :Medewerker_200070 .
+:Agreement_27_1 a onto-three:Type ;
+    onto-two:eindDatum "1201-01-01"^^xsd:date ;
+    onto-two:startDatum "0101-01-01"^^xsd:date ;
+    onto-three:employee :Employee_27 .
 
-:Medewerker_200010 a onz-pers:Human ;
-    rdfs:label "200010"^^xsd:string .
+:Employee_21 a onto-three:Human ;
+    rdfs:label "21"^^xsd:string .
 
-:Medewerker_200020 a onz-pers:Human ;
-    rdfs:label "200020"^^xsd:string .
+:Employee_22 a onto-three:Human ;
+    rdfs:label "22"^^xsd:string .
 
-:Medewerker_200050 a onz-pers:Human ;
-    rdfs:label "200050"^^xsd:string .
+:Employee_25 a onto-three:Human ;
+    rdfs:label "25"^^xsd:string .
 
-:Medewerker_200070 a onz-pers:Human ;
-    rdfs:label "200070"^^xsd:string .
+:Employee_27 a onto-three:Human ;
+    rdfs:label "27"^^xsd:string .
 
-:Medewerker_200030 a onz-pers:Human ;
-    rdfs:label "200030"^^xsd:string .
+:Employee_23 a onto-three:Human ;
+    rdfs:label "23"^^xsd:string .
 
-:Medewerker_200060 a onz-pers:Human ;
-    rdfs:label "200060"^^xsd:string .
+:Employee_26 a onto-three:Human ;
+    rdfs:label "26"^^xsd:string .
 
