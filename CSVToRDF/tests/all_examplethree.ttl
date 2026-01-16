@@ -1,0 +1,92 @@
+@prefix : <http://data.example.com#> .
+@prefix onto: <http://purl.org/onto#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:ExampleThree_1 a onto:SomeRole ;
+    rdfs:label "1"^^xsd:string .
+
+:ExampleThree_2 a onto:SomeRole ;
+    rdfs:label "2"^^xsd:string .
+
+:ExampleThree_3 a onto:SomeRole ;
+    rdfs:label "3"^^xsd:string .
+
+:Period_1_1 a onto:Period ;
+    onto:definedBy :Thing2_1 ;
+    onto:eindDatum "2022-01-10"^^xsd:date ;
+    onto:hasArtifact :Thing1_1 ;
+    onto:hasHours 120.0 ;
+    onto:hasParticipant :Thing3_1 ;
+    onto:startDatum "2022-01-01"^^xsd:date .
+
+:Period_2_2 a onto:Period ;
+    onto:definedBy :Thing2_2 ;
+    onto:eindDatum "2022-01-11"^^xsd:date ;
+    onto:hasArtifact :Thing1_2 ;
+    onto:hasHours 180.0 ;
+    onto:hasParticipant :Thing3_2 ;
+    onto:startDatum "2022-01-02"^^xsd:date .
+
+:Period_3_3 a onto:Period ;
+    onto:definedBy :Thing2_3 ;
+    onto:eindDatum "2022-01-12"^^xsd:date ;
+    onto:hasArtifact :Thing1_3 ;
+    onto:hasHours 240.0 ;
+    onto:hasParticipant :Thing3_3 ;
+    onto:startDatum "2022-01-03"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2022-01-02> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 8037 ] ;
+    time:inXSDDate "2022-01-02"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2022-01-03> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 8038 ] ;
+    time:inXSDDate "2022-01-03"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2022-01-11> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 8046 ] ;
+    time:inXSDDate "2022-01-11"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2022-01-12> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 8047 ] ;
+    time:inXSDDate "2022-01-12"^^xsd:date .
+
+:thing4_1_1 a onto:ThingFour ;
+    rdfs:label "1_1"^^xsd:string ;
+    onto:eindDatum "2022-01-10"^^xsd:date ;
+    onto:isAbout :Thing2_1,
+        :Thing3_1 ;
+    onto:startDatum "2022-01-01"^^xsd:date .
+
+:thing4_2_2 a onto:ThingFour ;
+    rdfs:label "2_2"^^xsd:string ;
+    onto:eindDatum "2022-01-11"^^xsd:date ;
+    onto:isAbout :Thing2_2,
+        :Thing3_2 ;
+    onto:startDatum "2022-01-02"^^xsd:date .
+
+:thing4_3_3 a onto:ThingFour ;
+    rdfs:label "3_3"^^xsd:string ;
+    onto:eindDatum "2022-01-12"^^xsd:date ;
+    onto:isAbout :Thing2_3,
+        :Thing3_3 ;
+    onto:startDatum "2022-01-03"^^xsd:date .
+
+:Thing2_1 a onto:Thingtwo ;
+    rdfs:label "1"^^xsd:string ;
+    onto:hasPart :thing4_1_1 .
+
+:Thing2_2 a onto:Thingtwo ;
+    rdfs:label "2"^^xsd:string ;
+    onto:hasPart :thing4_2_2 .
+
+:Thing2_3 a onto:Thingtwo ;
+    rdfs:label "3"^^xsd:string ;
+    onto:hasPart :thing4_3_3 .
+

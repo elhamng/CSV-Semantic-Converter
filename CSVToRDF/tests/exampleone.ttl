@@ -1,0 +1,9 @@
+@prefix : <http://data.example.com#> .
+@prefix onto: <http://purl.org/onto#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Thing1_1 a onto:Thingone ;
+    rdfs:label "1"^^xsd:string ;
+    onto:hasDate "2020-01-01"^^xsd:date .
+

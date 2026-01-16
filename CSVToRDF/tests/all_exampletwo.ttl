@@ -1,0 +1,84 @@
+@prefix : <http://data.example.com#> .
+@prefix onto: <http://purl.org/onto#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Thing1_1 a onto:Thingone ;
+    rdfs:label "1"^^xsd:string ;
+    onto:eindDatum "2021-06-01"^^xsd:date ;
+    onto:hasQuality [ onto:hasQualityValue [ onto:hasDataValue "A" ] ] ;
+    onto:hasotherrelationship :Thing2_1 ;
+    onto:hassomeRelationship :Thing3_G1 ;
+    onto:startDatum "2021-01-01"^^xsd:date .
+
+:Thing1_2 a onto:Thingone ;
+    rdfs:label "2"^^xsd:string ;
+    onto:eindDatum "2021-06-02"^^xsd:date ;
+    onto:hasQuality [ onto:hasQualityValue [ onto:hasDataValue "B" ] ] ;
+    onto:hasotherrelationship :Thing2_2 ;
+    onto:hassomeRelationship :Thing3_G2 ;
+    onto:startDatum "2021-01-02"^^xsd:date .
+
+:Thing1_3 a onto:Thingone ;
+    rdfs:label "3"^^xsd:string ;
+    onto:eindDatum "2021-06-03"^^xsd:date ;
+    onto:hasQuality [ onto:hasQualityValue [ onto:hasDataValue "C" ] ] ;
+    onto:hasotherrelationship :Thing2_3 ;
+    onto:hassomeRelationship :Thing3_G1 ;
+    onto:startDatum "2021-01-03"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2021-01-01> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 7671 ] ;
+    time:inXSDDate "2021-01-01"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2021-01-02> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 7672 ] ;
+    time:inXSDDate "2021-01-02"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2021-01-03> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 7673 ] ;
+    time:inXSDDate "2021-01-03"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2021-06-01> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 7822 ] ;
+    time:inXSDDate "2021-06-01"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2021-06-02> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 7823 ] ;
+    time:inXSDDate "2021-06-02"^^xsd:date .
+
+<http://purl.org/ozo/onz-g/dag2021-06-03> a time:Instant ;
+    time:inTemporalPosition [ a time:TimePosition ;
+            time:numericPosition 7824 ] ;
+    time:inXSDDate "2021-06-03"^^xsd:date .
+
+:Thing2_1 a onto:ExampleTypeA,
+        onto:Thingtwo ;
+    rdfs:label "1"^^xsd:string ;
+    onto:hasHours [ a onto:Hours ;
+            onto:hoursUnit 100.0 ] .
+
+:Thing2_2 a onto:ExampleTypeB,
+        onto:Thingtwo ;
+    rdfs:label "2"^^xsd:string ;
+    onto:hasHours [ a onto:Hours ;
+            onto:hoursUnit 150.0 ] .
+
+:Thing2_3 a onto:ExampleTypeC,
+        onto:Thingtwo ;
+    rdfs:label "3"^^xsd:string ;
+    onto:hasHours [ a onto:Hours ;
+            onto:hoursUnit 200.0 ] .
+
+:Thing3_G2 a onto:Thingthree ;
+    rdfs:label "G2"^^xsd:string .
+
+:Thing3_G1 a onto:Thingthree ;
+    rdfs:label "G1"^^xsd:string .
+

@@ -1,0 +1,9 @@
+@prefix : <http://data.example.com#> .
+@prefix onto: <http://purl.org/onto#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Thing4_CODE1 a onto:CategoryFunctie,
+        onto:ItemCategory ;
+    rdfs:label "CODE1"^^xsd:string .
+
