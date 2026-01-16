@@ -1,0 +1,42 @@
+@prefix : <http://data.example.com#> .
+@prefix onto: <http://purl.org/onto#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:ExampleThree_1 a onto:SomeRole ;
+    rdfs:label "1"^^xsd:string .
+
+:Period_1_1 a onto:Period ;
+    onto:definedBy :Thing2_1 ;
+    onto:eindDatum "2022-01-10"^^xsd:date ;
+    onto:hasArtifact :Thing1_1 ;
+    onto:hasHours 120.0 ;
+    onto:hasParticipant :Thing3_1 ;
+    onto:startDatum "2022-01-01"^^xsd:date .
+
+:Thing1_1 a onto:Thingone ;
+    rdfs:label "1"^^xsd:string ;
+    onto:eindDatum "2021-06-01"^^xsd:date ;
+    onto:hasDate "2020-01-01"^^xsd:date ;
+    onto:hasQuality [ onto:hasQualityValue [ onto:hasDataValue "A" ] ] ;
+    onto:hasotherrelationship :Thing2_1 ;
+    onto:hassomeRelationship :Thing3_G1 ;
+    onto:startDatum "2021-01-01"^^xsd:date .
+
+:Thing3_G1 a onto:Thingthree ;
+    rdfs:label "G1"^^xsd:string .
+
+:thing4_1_1 a onto:ThingFour ;
+    rdfs:label "1_1"^^xsd:string ;
+    onto:eindDatum "2022-01-10"^^xsd:date ;
+    onto:isAbout :Thing2_1,
+        :Thing3_1 ;
+    onto:startDatum "2022-01-01"^^xsd:date .
+
+:Thing2_1 a onto:ExampleTypeA,
+        onto:Thingtwo ;
+    rdfs:label "1"^^xsd:string ;
+    onto:hasHours [ a onto:Hours ;
+            onto:hoursUnit 100.0 ] ;
+    onto:hasPart :thing4_1_1 .
+
