@@ -350,6 +350,18 @@ Correction & Documentation
 Entity lexicalization is the process of associating entities in a knowledge graph with human-readable names and linguistic expressions. It enables humans and language-based systems to refer to entities using natural language while preserving stable, machine-oriented identifiers. Lexicalization supports search, interoperability, multilinguality, and user interaction without compromising semantic precision.
 
 
+Ontologies and rules can be used to define and reason about the semantics of the terms used in the graph. “explicit knowledge,” i.e., something that is known and can be written down. Graphs offer a flexible way to conceptualise, represent, and integrate diverse and incomplete data. 
+
+Resource Description Framework
+(RDF) defines three types of nodes: Internationalised Resource Identifiers (IRIs),
+used for globally identifying entities and relations on the Web; literals, used to represent strings
+and other datatype values (integers, dates, etc.); and blank nodes, used to denote the existence of
+an entity.
+
+Classes. Often, we can group nodes in a graph into classes—such as Event, City, and so
+on—with a type property.
+
+
 
 
 
