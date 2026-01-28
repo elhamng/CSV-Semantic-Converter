@@ -168,8 +168,8 @@ def create_time_instant(g, date_literal, base_epoch_date="2000-01-01"):
         # Create URIs
         #time_instant_uri = create_uri("TimeInstant", date_str.replace('-', '_'), default_ns)
         #temporal_position_uri = create_uri("TemporalPosition", date_str.replace('-', '_'), default_ns)
-        # Create URI- using the format from the kik-v example
-        time_instant_uri = URIRef(f"http://purl.org/ozo/onz-g/dag{date_str}")
+        # Create URI- using the format example
+        time_instant_uri = URIRef(f"http://purl.org/onto/dag{date_str}")
         temporal_position = BNode()
         # Add RDF triples
         g.add((time_instant_uri, RDF.type, time_ns.Instant))
@@ -187,3 +187,4 @@ def create_time_instant(g, date_literal, base_epoch_date="2000-01-01"):
     except Exception as e:
         print(f"Warning: Could not create time instant for date '{date_str}': {e}")
         return None, None
+
