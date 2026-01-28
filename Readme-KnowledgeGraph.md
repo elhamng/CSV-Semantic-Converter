@@ -361,6 +361,149 @@ an entity.
 Classes. Often, we can group nodes in a graph into classes—such as Event, City, and so
 on—with a type property.
 
+Why and How to Use Knowledge Graphs for Enterprise Analytics & AI
+
+1. Motivation
+
+Enterprise data is rarely simple.
+
+Even when data is stored in relational databases or CSV files, answering business questions often requires:
+
+understanding implicit business concepts
+
+combining data across many tables/files
+
+applying domain-specific rules
+
+handling time validity
+
+avoiding double counting
+
+Large Language Models (LLMs) struggle with this complexity when querying raw SQL schemas, because SQL schemas describe how data is stored, not what it means.
+
+why Knowledge Graphs (KGs) help,
+
+how they improve query correctness,
+
+and how they fit into modern data & AI architectures.
+
+2. The Core Problem with Enterprise SQL
+
+In enterprise environments:
+
+Schemas are large and normalized
+
+Table and column names are technical
+
+Business logic is spread across joins and filters
+
+Important concepts are implicit
+
+Example business question:
+
+“On a given date, how many unique clients per care profile receive care at a location, broken down by delivery form?”
+
+To answer this in SQL, you must know:
+
+which tables represent clients, profiles, locations
+
+how delivery forms are encoded (flags, codes, lookup tables)
+
+how time validity is modeled
+
+how to avoid double counting across joins
+
+This makes queries:
+
+long and fragile
+
+hard to validate
+
+difficult for LLMs to generate correctly.
+
+3. Knowledge Graphs as a Semantic Layer
+
+A Knowledge Graph introduces a semantic layer on top of existing data.
+
+Key idea
+
+Instead of querying tables, you query business concepts and relationships.
+
+A KG uses:
+
+RDF to represent facts as triples
+
+ontologies to define domain concepts
+
+SPARQL to query meaning, not storage
+
+4. From Relational Data to Knowledge Graph
+Step 1: Identify business concepts
+
+From tables or CSVs, extract concepts such as:
+
+Client
+
+Location
+
+Care Profile
+
+Care Process
+
+Care Indication
+
+Delivery Form
+
+Step 2: Make relationships explicit
+
+Instead of foreign keys, model:
+
+client receives care via process
+
+process occurs at location
+
+indication has care profile
+
+indication has delivery form
+
+6. Why SPARQL Is Easier Than SQL for Business Questions
+7. 
+SQL mindset
+
+How are tables joined?
+
+Which columns encode this meaning?
+
+How do I avoid duplicates?
+
+SPARQL mindset
+
+Which facts must be true?
+
+How are concepts related?
+
+Which conditions apply?
+
+7. Results from Research (Why This Works)
+
+Research shows that:
+
+LLMs perform poorly on complex enterprise SQL schemas
+
+Accuracy drops to near zero for highly joined queries
+
+Introducing a Knowledge Graph triples accuracy
+
+Ontologies prevent hallucinations by constraining vocabulary
+
+Key insight:
+
+Context and semantics matter more than model size.
+
+
+
+
+
 
 
 
