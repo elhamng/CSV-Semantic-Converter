@@ -377,6 +377,29 @@ numeric calculations
 
 time periods
 
+What is interoperability?
+
+Interoperability is the ability of different systems to understand, exchange, and reuse data without custom integration each time.
+
+“If two systems both have a column called status, that doesn’t mean they’re interoperable. One might mean ‘financial status’ and the other ‘care status’.
+
+With RDF, you don’t just exchange values — you exchange meaning by linking to the same concepts.”
+
+APIs are designed around specific applications and use cases. They define how data can be accessed, but the meaning of the data is usually implicit and documented separately. When an API changes, or when you integrate multiple APIs, you often need custom logic every time.
+
+RDF, on the other hand, uses globally unique identifiers and explicit semantics. Data is published using shared vocabularies, so different systems can interpret the data in the same way without prior coordination.
+
+That makes RDF much better suited for long-term interoperability, especially when data comes from multiple independent sources.”
+
+What is IRI?
+An IRI (Internationalized Resource Identifier) is a globally unique identifier used to unambiguously identify things in RDF.
+
+I learned that ontology engineering is mainly about understanding and structuring meaning, not about tools. Good models are simple, evolve over time, and make trade-offs explicit. What really matters is supporting real use cases while keeping the model understandable and maintainable.
+
+
+
+
+
  
 
 
